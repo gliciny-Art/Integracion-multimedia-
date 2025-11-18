@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebAR - Experiencia Interactiva</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <style>
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">
+        Cargando experiencia AR...
+    </div>
+
+    <a-scene 
+        embedded 
+        arjs="sourceType: webcam; debugUIEnabled: false;"
+        renderer="logarithmicDepthBuffer: true;"
+        vr-mode-ui="enabled: false"
+        loading-screen="enabled: false">
+
+        <!-- Marcador pag1_2 -->
+        <a-marker 
+            id="marker-pag1_2"
+            type="pattern" 
+            url="markers/pag1_2.patt"
+            emitevents="true"
+            cursor="fuse: false;"
+            visible="false">
+            
+            <!-- Escena 1 - Capas -->
+            <a-entity id="escena1-pag1_2" visible="true">
+                <!-- Capa 1 -->
+                <a-image 
+                    id="capa1-pag1_2"
+                    src="#capa1-pag1"
+                    position="0 0 0"
+                    width="2"
+                    height="2"
+                    visible="true">
+                </a-image>
+                
+                <!-- Capa 2 (aparece después) -->
+                <a-image 
+                    id="capa2-pag1_2"
+                    src="#capa2-pag1"
+                    position="0 0 -0.1"
+                    width="2"
+                    height="2"
+                    visible="false">
+                </a-image>
+
+                <!-- Audio estrofa1 -->
+                <a-entity 
+                    id="audio-estrofa1"
+                    sound="src: #estrofa1; autoplay: false; loop: false">
+                </a-entity>
+            </a-entity>
+
+            <!-- Escena 2 - Imagen pasar página -->
+            <a-entity id="escena2-pag1_2" visible="false">
+                <a-image 
+                    id="pasar-pagina-pag1_2"
+                    src="#pasar-pagina"
+                    position="0 0 0"
+                    width="2"
+                    height="1"
+                    transparent="true">
+                </a-image>
+            </a-entity>
+        </a-marker>
+
+        <!-- Marcador pag3_4 -->
+        <a-marker 
+            id="marker-pag3_4"
+            type="pattern" 
+            url="markers/pag3_4.patt"
+            emitevents="true"
+            cursor="fuse: false;"
+            visible="false">
+            
+            <!-- Escena 1 -->
+            <a-entity id="escena1-pag3_4" visible="true">
+                <a-image 
+                    id="escena1-img-pag3_4"
+                    src="#escena1-pag3"
+                    position="0 0 0"
+                    width="2"
+                    height="2"
+                    visible="true">
+                </a-image>
+
+                <!-- Audio estrofa3 -->
+                <a-entity 
+                    id="audio-estrofa3"
+                    sound="src: #estrofa3; autoplay: false; loop: false">
+                </a-entity>
+            </a-entity>
+
+            <!-- Escena 2 -->
+            <a-entity id="escena2-pag3_4" visible="false">
+                <a-image 
+                    id="escena2-img-pag3_4"
+                    src="#escena2-pag3"
+                    position="0 0 0"
+                    width="2"
+                    height="2"
+                    visible="true">
+                </a-image>
+
+                <!-- Audio estrofa4 -->
+                <a-entity 
+                    id="audio-estrofa4"
+                    sound="src: #estrofa4; autoplay: false; loop: false">
+                </a-entity>
+            </a-entity>
+
+            <!-- Escena 3 - Pasar página -->
+            <a-entity id="escena3-pag3_4" visible="false">
+                <a-image 
+                    id="pasar-pagina-pag3_4"
+                    src="#pasar-pagina"
+                    position="0 0 0"
+                    width="2"
+                    height="1"
+                    transparent="true">
+                </a-image>
+            </a-entity>
+        </a-marker>
+
+        <!-- Marcador pag5_6 -->
+        <a-marker 
+            id="marker-pag5_6"
+            type="pattern" 
+            url="markers/pag5_6.patt"
+            emitevents="true"
+            cursor="fuse: false;"
+            visible="false">
+            
+            <!-- Escena 1 -->
+            <a-entity id="escena1-pag5_6" visible="true">
+                <a-image 
+                    id="escena1-img-pag5_6"
+                    src="#escena1-pag5"
+                    position="0 0 0"
+                    width="2"
+                    height="2"
+                    visible="true">
+                </a-image>
+
+                <!-- Audio estrofa5 -->
+                <a-entity 
+                    id="audio-estrofa5"
+                    sound="src: #estrofa5; autoplay: false; loop: false">
+                </a-entity>
+            </a-entity>
+
+            <!-- Escena 2 -->
+            <a-entity id="escena2-pag5_6" visible="false">
+                <a-image 
+                    id="escena2-img-pag5_6"
+                    src="#escena2-pag5"
+                    position="0 0 0"
+                    width="2"
+                    height="2"
+                    visible="true">
+                </a-image>
+
+                <!-- Audio estrofa6 -->
+                <a-entity 
+                    id="audio-estrofa6"
+                    sound="src: #estrofa6; autoplay: false; loop: false">
+                </a-entity>
+            </a-entity>
+
+            <!-- Escena 3 - Pasar página -->
+            <a-entity id="escena3-pag5_6" visible="false">
+                <a-image 
+                    id="pasar-pagina-pag5_6"
+                    src="#pasar-pagina"
+                    position="0 0 0"
+                    width="2"
+                    height="1"
+                    transparent="true">
+                </a-image>
+            </a-entity>
+        </a-marker>
+
+        <!-- Marcador pag7_8 (solo una escena en loop) -->
+        <a-marker 
+            id="marker-pag7_8"
+            type="pattern" 
+            url="markers/pag7_8.patt"
+            emitevents="true"
+            cursor="fuse: false;"
+            visible="false">
+            
+            <a-entity id="escena-pag7_8" visible="true">
+                <a-image 
+                    id="imagen-pag7_8"
+                    src="#imagen-pag7"
+                    position="0 0 0"
+                    width="2"
+                    height="2"
+                    visible="true">
+                </a-image>
+
+                <!-- Audio estrofa7 en loop -->
+                <a-entity 
+                    id="audio-estrofa7"
+                    sound="src: #estrofa7; autoplay: false; loop: true">
+                </a-entity>
+            </a-entity>
+        </a-marker>
+
+        <!-- Assets -->
+        <a-assets>
+            <!-- Imágenes para pag1_2 -->
+            <img id="capa1-pag1" src="assets/images/capa1-pag1.png">
+            <img id="capa2-pag1" src="assets/images/capa2-pag1.png">
+            <img id="pasar-pagina" src="assets/images/pasar-pagina.png">
+            
+            <!-- Imágenes para pag3_4 -->
+            <img id="escena1-pag3" src="assets/images/escena1-pag3.png">
+            <img id="escena2-pag3" src="assets/images/escena2-pag3.png">
+            
+            <!-- Imágenes para pag5_6 -->
+            <img id="escena1-pag5" src="assets/images/escena1-pag5.png">
+            <img id="escena2-pag5" src="assets/images/escena2-pag5.png">
+            
+            <!-- Imágenes para pag7_8 -->
+            <img id="imagen-pag7" src="assets/images/imagen-pag7.png">
+
+            <!-- Audios -->
+            <audio id="estrofa1" src="assets/audio/estrofa1.mp3" preload="auto"></audio>
+            <audio id="estrofa2" src="assets/audio/estrofa2.mp3" preload="auto"></audio>
+            <audio id="estrofa3" src="assets/audio/estrofa3.mp3" preload="auto"></audio>
+            <audio id="estrofa4" src="assets/audio/estrofa4.mp3" preload="auto"></audio>
+            <audio id="estrofa5" src="assets/audio/estrofa5.mp3" preload="auto"></audio>
+            <audio id="estrofa6" src="assets/audio/estrofa6.mp3" preload="auto"></audio>
+            <audio id="estrofa7" src="assets/audio/estrofa7.mp3" preload="auto"></audio>
+        </a-assets>
+
+        <!-- Cámara -->
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+        // Esperar a que cargue la escena
+        document.addEventListener('DOMContentLoaded', function() {
+            const scene = document.querySelector('a-scene');
+            
+            scene.addEventListener('loaded', function() {
+                document.getElementById('loading').style.display = 'none';
+                initializeARExperience();
+            });
+        });
+
+        function initializeARExperience() {
+            // Variables de control
+            const timers = {};
+            const currentScenes = {
+                'pag1_2': 1,
+                'pag3_4': 1,
+                'pag5_6': 1,
+                'pag7_8': 1
+            };
+
+            // Configurar eventos para cada marcador
+            setupMarker('pag1_2', 3); // 3 escenas
+            setupMarker('pag3_4', 3); // 3 escenas
+            setupMarker('pag5_6', 3); // 3 escenas
+            setupMarker('pag7_8', 1); // 1 escena en loop
+
+            function setupMarker(markerName, totalScenes) {
+                const marker = document.getElementById(`marker-${markerName}`);
+                
+                marker.addEventListener('markerFound', function() {
+                    console.log(`Marcador ${markerName} detectado`);
+                    startMarkerExperience(markerName, totalScenes);
+                });
+
+                marker.addEventListener('markerLost', function() {
+                    console.log(`Marcador ${markerName} perdido`);
+                    stopMarkerExperience(markerName);
+                });
+            }
+
+            function startMarkerExperience(markerName, totalScenes) {
+                // Reiniciar contador de escena
+                currentScenes[markerName] = 1;
+                
+                // Mostrar primera escena
+                showScene(markerName, 1);
+                
+                // Iniciar secuencia temporal
+                startSceneSequence(markerName, totalScenes);
+            }
+
+            function stopMarkerExperience(markerName) {
+                // Limpiar timers
+                if (timers[markerName]) {
+                    timers[markerName].forEach(timer => clearTimeout(timer));
+                    timers[markerName] = [];
+                }
+                
+                // Detener audio
+                const audioEntity = document.getElementById(`audio-estrofa${getAudioNumber(markerName, currentScenes[markerName])}`);
+                if (audioEntity && audioEntity.components.sound) {
+                    audioEntity.components.sound.stopSound();
+                }
+            }
+
+            function startSceneSequence(markerName, totalScenes) {
+                timers[markerName] = [];
+                
+                if (markerName === 'pag7_8') {
+                    // Caso especial para pag7_8 - solo una escena en loop
+                    const audioEntity = document.getElementById('audio-estrofa7');
+                    if (audioEntity && audioEntity.components.sound) {
+                        setTimeout(() => {
+                            audioEntity.components.sound.playSound();
+                        }, 1000);
+                    }
+                    return;
+                }
+
+                // Secuencia para marcadores con múltiples escenas
+                let timeAccumulator = 0;
+
+                // Escena 1 a Escena 2 (20 segundos)
+                if (totalScenes >= 2) {
+                    timers[markerName].push(setTimeout(() => {
+                        showScene(markerName, 2);
+                        playAudio(markerName, 2);
+                    }, 20000));
+                    timeAccumulator += 20000;
+                }
+
+                // Escena 2 a Escena 3 (20 segundos más - imagen "pasar página")
+                if (totalScenes >= 3) {
+                    timers[markerName].push(setTimeout(() => {
+                        showScene(markerName, 3);
+                    }, timeAccumulator + 20000));
+                }
+            }
+
+            function showScene(markerName, sceneNumber) {
+                // Ocultar todas las escenas del marcador
+                for (let i = 1; i <= 3; i++) {
+                    const sceneElement = document.getElementById(`escena${i}-${markerName}`);
+                    if (sceneElement) {
+                        sceneElement.setAttribute('visible', i === sceneNumber);
+                    }
+                }
+                
+                currentScenes[markerName] = sceneNumber;
+                console.log(`Mostrando escena ${sceneNumber} para ${markerName}`);
+            }
+
+            function playAudio(markerName, sceneNumber) {
+                const audioNumber = getAudioNumber(markerName, sceneNumber);
+                const audioEntity = document.getElementById(`audio-estrofa${audioNumber}`);
+                
+                if (audioEntity && audioEntity.components.sound) {
+                    audioEntity.components.sound.playSound();
+                    console.log(`Reproduciendo estrofa${audioNumber} para ${markerName}`);
+                }
+            }
+
+            function getAudioNumber(markerName, sceneNumber) {
+                const audioMap = {
+                    'pag1_2': { 1: 1, 2: 2 },
+                    'pag3_4': { 1: 3, 2: 4 },
+                    'pag5_6': { 1: 5, 2: 6 },
+                    'pag7_8': { 1: 7 }
+                };
+                
+                return audioMap[markerName]?.[sceneNumber] || 1;
+            }
+        }
+    </script>
+</body>
+</html>
